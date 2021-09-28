@@ -42,13 +42,21 @@ public class FuncView extends LinearLayout {
         super(context);
         setOrientation(HORIZONTAL);
         setBackgroundResource(R.drawable.pd_shadow_131124);
+
+        //left
         ImageView moveView = new ImageView(context);
+        //middle
         RecyclerView recyclerView = new RecyclerView(context);
+        //right
         ImageView closeView = new ImageView(context);
 
+        //
+        //左边的拖拽图标
         moveView.setImageResource(R.drawable.pd_drag);
         moveView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         moveView.setOnTouchListener(touchListener);
+
+        //右边的关闭图标
         closeView.setImageResource(R.drawable.pd_close);
         closeView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         closeView.setOnClickListener(new OnClickListener() {
@@ -57,6 +65,8 @@ public class FuncView extends LinearLayout {
                 close();
             }
         });
+
+        //中间的功能图标集合（recyclerview来承接）
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(adapter = new UniversalAdapter());
 

@@ -48,15 +48,17 @@ public class ViewFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected View getLayoutView() {
-        View panelView = LayoutInflater.from(getContext()).inflate(R.layout.pd_layout_view_panel, null);
+        //添加选中的element
         operableView = new OperableView(getContext());
         operableView.tryGetFrontView(Pandora.get().getTopActivity());
         operableView.setOnClickListener(this);
-
         CoordinatorLayout layout = new CoordinatorLayout(getContext());
         CoordinatorLayout.LayoutParams selectViewParams = new CoordinatorLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layout.addView(operableView, selectViewParams);
+
+        //添加底部控件类型
+        View panelView = LayoutInflater.from(getContext()).inflate(R.layout.pd_layout_view_panel, null);
         CoordinatorLayout.LayoutParams panelViewParams = new CoordinatorLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         panelViewParams.setBehavior(behavior = new BottomSheetBehavior());
