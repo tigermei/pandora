@@ -59,8 +59,8 @@ public class AssetUtil {
     private static void copyFile(Context context, String filename) {
         AssetManager assetManager = context.getAssets();
 
-        InputStream in;
-        OutputStream out;
+        InputStream in = null;
+        OutputStream out = null;
         String newFileName = null;
         try {
             Log.i("tag", "copyFile() " + filename);
@@ -73,10 +73,24 @@ public class AssetUtil {
             while ((read = in.read(buffer)) != -1) {
                 out.write(buffer, 0, read);
             }
-            in.close();
-            out.close();
         } catch (Exception e) {
             Log.e("tag", "Exception in copyFile() of " + newFileName, e);
+        } finally {
+            try {
+                if(null != in){
+                    in.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                if(null != out){
+                    out.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }
