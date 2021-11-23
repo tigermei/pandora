@@ -26,7 +26,7 @@
             android:singleLine="true"
             android:textColor="#000"
             android:textSize="17dp"
-            tools:text="123123123123123123123123123123123123" />
+            tools:text="123123123123123" />
 
         <TextView
             android:id="@+id/common_item_info"
@@ -38,7 +38,7 @@
             android:singleLine="true"
             android:textColor="@color/pd_label_dark"
             android:textSize="12dp"
-            tools:text="123123123123123123123123123123123123123123123123123123123123123123123123" />
+            tools:text="12312312312323123123" />
     </LinearLayout>
 
     <ImageView
