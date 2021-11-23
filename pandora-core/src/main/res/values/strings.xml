@@ -25,6 +25,8 @@
     <string name="pd_copy_hint">The new file is location at %s</string>
     <string name="pd_name_network">network</string>
     <string name="pd_name_sandbox">sandbox</string>
+    <string name="pd_name_ui">UI</string>
+    <string name="pd_name_shake">SHAKE</string>
     <string name="pd_name_select">select</string>
     <string name="pd_name_crash">crash</string>
     <string name="pd_name_layer">hierarchy</string>

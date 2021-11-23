@@ -26,6 +26,8 @@
     <string name="pd_copy_hint">已将文件拷贝到： %s</string>
     <string name="pd_name_network">网络日志</string>
     <string name="pd_name_sandbox">沙盒文件</string>
+    <string name="pd_name_ui">界面</string>
+    <string name="pd_name_shake">摇一摇</string>
     <string name="pd_name_select">选择视图</string>
     <string name="pd_name_crash">Crash</string>
     <string name="pd_name_layer">视图层级</string>

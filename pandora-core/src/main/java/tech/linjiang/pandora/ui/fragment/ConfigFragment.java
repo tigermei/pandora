@@ -102,12 +102,12 @@ public class ConfigFragment extends BaseListFragment {
         data.add(new TitleItem(ViewKnife.getString(R.string.pd_name_sandbox)));
         data.add(new CheckBoxItem("show device-protect-mode file\n(only for api>=24)", Config.getSANDBOX_DPM()).setTag(Config.Type.SANDBOX_DPM));
 
-        data.add(new TitleItem("UI"));
+        data.add(new TitleItem(ViewKnife.getString(R.string.pd_name_ui)));
         data.add(new NameArrowItem("the gravity of activity info", "" + ViewKnife.parseGravity(Config.getUI_ACTIVITY_GRAVITY())).setTag(Config.Type.UI_ACTIVITY_GRAVITY));
         data.add(new NameArrowItem("the interval of grid line(dp)", "" + Config.getUI_GRID_INTERVAL()).setTag(Config.Type.UI_GRID_INTERVAL));
         data.add(new CheckBoxItem("ignore system layers in hierarchy", Config.getUI_IGNORE_SYS_LAYER()).setTag(Config.Type.UI_IGNORE_SYS_LAYER));
 
-        data.add(new TitleItem("SHAKE"));
+        data.add(new TitleItem(ViewKnife.getString(R.string.pd_name_shake)));
         data.add(new CheckBoxItem(getString(R.string.pd_name_turn_on), Config.getSHAKE_SWITCH()).setTag(Config.Type.SHAKE_SWITCH));
         data.add(new NameArrowItem(getString(R.string.pd_name_threshold), "" + Config.getSHAKE_THRESHOLD()).setTag(Config.Type.SHAKE_THRESHOLD));
 
