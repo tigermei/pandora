@@ -28,6 +28,7 @@ public class Config {
     private static final String KEY_UI_GRID_INTERVAL        = "key_ui_grid_interval";
     private static final String KEY_UI_IGNORE_SYS_LAYER     = "key_ui_ignore_sys_layer";
     private static final String KEY_INTERNAL_DRAG_Y         = "key_internal_drag_y";
+    private static final String KEY_INTERNAL_DRAG_X         = "key_internal_drag_x";
     private static final String KEY_PERMISSION              = "key_permission";
 
     private static final boolean DEF_KEY_SHAKE_SWITCH = true;
@@ -41,6 +42,7 @@ public class Config {
     private static final int DEF_UI_GRID_INTERVAL = 5;
     private static final boolean DEF_UI_IGNORE_SYS_LAYER = false;
     private static final int DEF_INTERNAL_DRAG_Y = 0;
+    private static final int DEF_INTERNAL_DRAG_X = 0;
 
 
     public static void setNetLogEnable(boolean enable) {
@@ -59,8 +61,18 @@ public class Config {
                 .apply();
     }
 
+    public static void setDragX(float x) {
+        getSp().edit()
+                .putFloat(KEY_INTERNAL_DRAG_X, x)
+                .apply();
+    }
+
     public static float getDragY() {
         return getSp().getFloat(KEY_INTERNAL_DRAG_Y, DEF_INTERNAL_DRAG_Y);
+    }
+
+    public static float getDragX() {
+        return getSp().getFloat(KEY_INTERNAL_DRAG_X, DEF_INTERNAL_DRAG_X);
     }
 
     public static void setPermissionChecked() {

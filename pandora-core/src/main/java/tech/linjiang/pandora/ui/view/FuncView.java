@@ -35,6 +35,7 @@ public class FuncView extends LinearLayout {
 
     private UniversalAdapter adapter;
     private float lastY;
+    private float lastX;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -103,13 +104,17 @@ public class FuncView extends LinearLayout {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     lastY = event.getRawY();
+                    lastX = event.getRawX();
                     break;
                 case MotionEvent.ACTION_MOVE:
                     WindowManager.LayoutParams params = (WindowManager.LayoutParams) getLayoutParams();
                     params.y += event.getRawY() - lastY;
+                    params.x += event.getRawX() - lastX;
                     params.y = Math.max(0, params.y);
+                    params.x = Math.max(0, params.x);
                     Utils.updateViewLayoutInWindow(FuncView.this, params);
                     lastY = event.getRawY();
+                    lastX = event.getRawX();
                     Utils.cancelTask(task);
                     Utils.postDelayed(task, 200);
                     break;
@@ -124,6 +129,7 @@ public class FuncView extends LinearLayout {
         @Override
         public void run() {
             Config.setDragY(lastY);
+            Config.setDragX(lastX);
         }
     };
 
@@ -157,7 +163,7 @@ public class FuncView extends LinearLayout {
         params.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         params.format = PixelFormat.TRANSLUCENT;
         params.gravity = Gravity.TOP | Gravity.START;
-        params.x = 0;
+        params.x = (int) Config.getDragX();
         params.y = (int) Config.getDragY();
         return Utils.addViewToWindow(this, params);
     }
