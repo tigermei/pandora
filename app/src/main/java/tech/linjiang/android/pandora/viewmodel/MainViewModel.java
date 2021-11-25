@@ -103,6 +103,16 @@ public class MainViewModel extends AndroidViewModel {
         return String.valueOf(rands);
     }
 
+    private String getRandomStrTmp(int length){
+        char[] rands = new char[length];
+        for(int i=0; i < rands.length; ++i){
+            int rand = (int)(Math.random() * CHAR.length());
+            rands[i] = CHAR.charAt(rand);
+        }
+
+        return String.valueOf(rands);
+    }
+
     public void resetDatabase() {
         ThreadPool.post(() -> {
             StoreDatabase.get().drinkDao().delete();

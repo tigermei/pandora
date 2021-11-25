@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 
 import tech.linjiang.android.pandora.MyApp;
 import tech.linjiang.android.pandora.db.dao.DrinkDao;
+import tech.linjiang.android.pandora.db.dao.TestDao;
 import tech.linjiang.android.pandora.db.entity.Drink;
 
 
@@ -30,17 +31,18 @@ public abstract class StoreDatabase extends RoomDatabase {
 
     public abstract DrinkDao drinkDao();
 
+    public abstract TestDao testDao();
 
-    private static StoreDatabase db =
-            Room.databaseBuilder(MyApp.getContext(), StoreDatabase.class, NAME)
-                    .allowMainThreadQueries()
-                    .fallbackToDestructiveMigration()
-                    .addMigrations(
-                            new MIGRATE_1_2()
-                    )
-                    .build();
+    private static StoreDatabase db;
 
     public static StoreDatabase get() {
+        if(null == db) {
+            db = Room.databaseBuilder(MyApp.getContext(), StoreDatabase.class, NAME)
+                    .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
+                    .addMigrations(new MIGRATE_1_2())
+                    .build();
+        }
         return db;
     }
 

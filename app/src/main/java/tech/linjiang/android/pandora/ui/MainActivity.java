@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             PopupWindow window = new PopupWindow(content,
                     ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            window.setContentView(content);
+            //window.setContentView(content);
             window.setOutsideTouchable(true);
             window.setFocusable(true);
             window.showAsDropDown(v);
