@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         });
         findViewById(R.id.btn_ui_dialog).setOnClickListener(v -> {
             new AlertDialog.Builder(this)
+                    .setTitle("hello AlertDialog!")
                     .setView(R.layout.activity_ui_test)
                     .show();
             toast(getString(R.string.pandora_open_select));
